@@ -11,6 +11,7 @@
 #include <vector>
 #include <random>       // std::default_random_engine
 #include <chrono> 
+#include <future>
 #include <string>
 #include <stdlib.h>
 #include <iostream>
@@ -22,6 +23,7 @@
 #include <SDL2/SDL2_gfxPrimitives.h>
 
 #include "BoxCollider.hpp"
+#include "Color.hpp"
 
 class Common final {
     public:

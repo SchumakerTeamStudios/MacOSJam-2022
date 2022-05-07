@@ -7,6 +7,7 @@
 #include "Common.hpp"
 #include "Splash.hpp"
 #include "AssetStore.hpp"
+#include "Menu.hpp"
 
 SDL_Window* window;
 SDL_Renderer* renderer;
@@ -102,8 +103,9 @@ int main(int argc, char* argv[]) {
     AssetStore* assetStore = AssetStore::getInstance();
     load(assetStore);
 
-    auto x = assetStore->getTexture(45);
-
+    Menu* menu = new Menu(renderer);
+    int code = menu->update();
+    
     quit();
     return 0;
 }
