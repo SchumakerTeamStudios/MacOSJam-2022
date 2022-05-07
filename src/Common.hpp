@@ -6,11 +6,15 @@
 
 #pragma once
 #include <map>
+#include <array>        // std::array
 #include <math.h>
 #include <vector>
+#include <random>       // std::default_random_engine
+#include <chrono> 
 #include <string>
 #include <stdlib.h>
 #include <iostream>
+#include <algorithm>    // std::shuffle
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
