@@ -30,7 +30,7 @@ void setUp() {
     Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 256);
 }
 
-void load(AssetStore* assetStore) {
+bool load(AssetStore* assetStore) {
     assetStore->addTexture(renderer, 0, "/data/clubs_02.png");
     assetStore->addTexture(renderer, 1, "/data/clubs_03.png");
     assetStore->addTexture(renderer, 2, "/data/clubs_04.png");
@@ -83,6 +83,8 @@ void load(AssetStore* assetStore) {
     assetStore->addTexture(renderer, 49, "/data/spades_J.png");
     assetStore->addTexture(renderer, 50, "/data/spades_K.png");
     assetStore->addTexture(renderer, 51, "/data/spades_Q.png");
+
+    return true;
 }
 
 void quit() {
@@ -98,10 +100,10 @@ void splash() {
 
 int main(int argc, char* argv[]) {
     setUp();
-    splash();
-
     AssetStore* assetStore = AssetStore::getInstance();
-    load(assetStore);
+    std::future<bool> loading = std::async(load, assetStore);
+    
+    splash();
 
     Menu* menu = new Menu(renderer);
     int code = menu->update();
