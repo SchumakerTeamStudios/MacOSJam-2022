@@ -30,6 +30,11 @@ void Menu::load() {
 
     SDL_Surface* surfaceStartGray = TTF_RenderText_Blended(font24, "- Press Space to Start -", Color::getGray());
     startGrayTexture = SDL_CreateTextureFromSurface(renderer, surfaceStartGray);
+
+    SDL_FreeSurface(bkgSurface);
+    SDL_FreeSurface(surfaceTitle);
+    SDL_FreeSurface(surfaceStartWhite);
+    SDL_FreeSurface(surfaceStartGray);
 }
 
 int Menu::update() {
