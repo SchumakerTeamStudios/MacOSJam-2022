@@ -17,11 +17,17 @@ Table::~Table() {
 void Table::load() {
     Dealer dealer;
     deck = dealer.newShuffledDeck();
-    short x = 100;
-    short y = 100;
-    for (short i = 0; i < deck.size(); i++) {
-        short id = deck[i];
-        cards.push_back(Card(id, x + (i *  64), y, 64, 64));
+    short x = 366;
+    short y = 65;
+    
+    short index = 0;
+    for (short i = 0; i < 7; i++) {
+        for (short j = 0; j <= i; j++) {
+            short id = deck[index];
+            cards.push_back(Card(id, x - (j * 44), y + (i * 26), 64, 64));
+            index++;
+        }
+        x += 20;
     }
 }  
 
@@ -48,12 +54,11 @@ void Table::render() {
     SDL_RenderClear(renderer);
     //SDL_RenderCopy(renderer, background, NULL, &rectBackground);
     
-    for (auto card : cards) {
+    for (auto& card : cards) {
         card.draw(renderer);
     }
     
     SDL_RenderPresent(renderer);   
-
 }
 
 void Table::input() {
