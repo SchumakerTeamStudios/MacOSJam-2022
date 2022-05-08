@@ -7,11 +7,19 @@
 #include "Card.hpp"
 
 Card::Card() : Sprite() {}
-Card::Card(short id) : Sprite() {}
-Card::Card(short id, short x, short y, short w, short h) : Sprite(x, y, w, h) {}
+Card::Card(short id) : Sprite() {
+    this->id = id;
+    AssetStore* assetStore = AssetStore::getInstance();
+    sprite = assetStore->getTexture(id);
+}
+Card::Card(short id, short x, short y, short w, short h) : Sprite(x, y, w, h) {
+    this->id = id;
+    AssetStore* assetStore = AssetStore::getInstance();
+    sprite = assetStore->getTexture(id);
+}
 Card::~Card() {}
 
-void Card::draw(SDL_Renderer *renderer) {
+void Card::draw(SDL_Renderer* renderer) {
     if (!destroyed) {
         SDL_Rect rect;
         rect.x = x; rect.y = y;

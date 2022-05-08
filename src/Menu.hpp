@@ -6,7 +6,7 @@
 #pragma once
 #include "Common.hpp"
 class Menu final {
-
+    
     private:
         SDL_Renderer* renderer;
         SDL_Texture* title;
@@ -34,5 +34,5 @@ class Menu final {
         Menu(SDL_Renderer* renderer);
         ~Menu();
 
-        int update();
+        short update();
 };

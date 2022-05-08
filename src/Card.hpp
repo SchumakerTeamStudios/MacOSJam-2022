@@ -7,11 +7,11 @@
 #pragma once
 #include "Common.hpp"
 #include "Sprite.hpp"
-
 class Card final : public Sprite {
+    
     public:
         short id;
-        bool destroyed;
+        bool destroyed = false;
 
         Card();
         Card(short id);

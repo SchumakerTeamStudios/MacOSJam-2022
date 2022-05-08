@@ -37,7 +37,7 @@ void Menu::load() {
     SDL_FreeSurface(surfaceStartGray);
 }
 
-int Menu::update() {
+short Menu::update() {
     isRunning = true;
     int timeToWait = 0;
     while(isRunning) {

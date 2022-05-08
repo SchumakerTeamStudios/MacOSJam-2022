@@ -6,7 +6,6 @@
 
 #pragma once
 #include "Common.hpp"
-
 class Color final {
     
     public:

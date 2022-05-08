@@ -6,11 +6,62 @@
 
 #include "Common.hpp"
 #include "Splash.hpp"
-#include "AssetStore.hpp"
 #include "Menu.hpp"
+#include "Table.hpp"
 
 SDL_Window* window;
 SDL_Renderer* renderer;
+
+void splash();
+short loadMenu();
+void setUp();
+bool load(AssetStore* assetStore);
+void logic();
+short game();
+void quit();
+
+int main(int argc, char* argv[]) {
+    setUp();
+    AssetStore* assetStore = AssetStore::getInstance();
+    std::future<bool> loading = std::async(load, assetStore);
+    
+    splash();
+    logic();
+    quit();
+    return 0;
+}
+
+void logic() {
+    short stage = 0;
+    for(;;) {
+        switch(stage) {
+        case 0:
+            stage = loadMenu();         
+            break;
+
+        case 1:
+            stage = game();
+            break;
+        
+        case 2:
+            break;
+        }
+    }
+}
+
+short loadMenu() {
+    Menu* menu = new Menu(renderer);
+    short code = menu->update();
+    delete menu;
+    return code;
+}
+
+short game() {
+    Table* level = new Table(renderer);
+    short code = level->loop();
+    delete level;
+    return code;
+}
 
 void setUp() {
     SDL_Init(SDL_INIT_EVERYTHING);
@@ -96,18 +147,4 @@ void splash() {
     Splash* splash = new Splash(renderer);
     delete splash;
     splash = nullptr;
-}
-
-int main(int argc, char* argv[]) {
-    setUp();
-    AssetStore* assetStore = AssetStore::getInstance();
-    std::future<bool> loading = std::async(load, assetStore);
-    
-    splash();
-
-    Menu* menu = new Menu(renderer);
-    int code = menu->update();
-    
-    quit();
-    return 0;
 }

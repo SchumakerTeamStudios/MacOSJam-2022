@@ -6,8 +6,8 @@
 
 #pragma once
 #include "Common.hpp"
-
 class Sprite {
+    
     public:
         short x, y, w, h;
         SDL_Texture* sprite;

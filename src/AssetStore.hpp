@@ -6,8 +6,8 @@
 
 #pragma once
 #include "Common.hpp"
-
 class AssetStore final {
+    
     private:
         inline static AssetStore* instance;
         std::map<short, SDL_Texture*> textures;

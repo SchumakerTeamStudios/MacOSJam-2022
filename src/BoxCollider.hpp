@@ -6,6 +6,7 @@
 
 #pragma once
 class BoxCollider final {
+    
     public:
         short x, y, w, h;
 

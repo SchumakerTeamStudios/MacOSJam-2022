@@ -22,10 +22,12 @@
 #include <SDL2/SDL_mixer.h>
 #include <SDL2/SDL2_gfxPrimitives.h>
 
+#include "AssetStore.hpp"
 #include "BoxCollider.hpp"
 #include "Color.hpp"
 
 class Common final {
+    
     public:
         inline static const char TITLE[] = "-  -";
         
