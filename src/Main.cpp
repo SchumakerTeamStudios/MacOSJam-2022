@@ -33,7 +33,7 @@ int main(int argc, char* argv[]) {
 
 void logic() {
     short stage = 0;
-    for(;;) {
+    for (;;) {
         switch(stage) {
         case 0:
             stage = loadMenu();         
