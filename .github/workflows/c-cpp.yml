@@ -46,13 +46,13 @@ jobs:
         mv -f game.app build
         
         dylibbundler -od -b -x ./build/game.app/Contents/MacOS/game -d ./build/game.app/Contents/libs/ -p @executable_path/../libs/
+        rm -f ./build/game
+        rm -r -f ./build/data
         pkgbuild --analyze --root ./build ./build/game.plist 
         pkgbuild --root ./build --component-plist ./build/game.plist --identifier com.schumakerteam.game --version 0 --install-location /Applications ./build/install.pkg
 
     - name: compress
       run: |
-        rm -f ./build/game
-        rm -r -f ./build/data
         mkdir release
         tar -cvf ./release/artifacts.tar ./build
         ls -al ./build
