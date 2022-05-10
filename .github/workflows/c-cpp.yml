@@ -49,11 +49,12 @@ jobs:
         rm -f ./build/game
         rm -r -f ./build/data
         pkgbuild --analyze --root ./build game.plist 
-        pkgbuild --root ./build --component-plist game.plist --identifier com.schumakerteam.game --version 0 --install-location /Applications ./build/install.pkg
+        pkgbuild --root ./build --component-plist game.plist --identifier com.schumakerteam.game --version 0 --install-location /Applications install.pkg
 
     - name: compress
       run: |
         mkdir release
+        mv -f install.pkg build
         tar -cvf ./release/artifacts.tar ./build
         ls -al ./build
       
