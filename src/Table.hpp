@@ -18,8 +18,10 @@ class Table final {
         bool isRunning = false;
         int millisecsPreviousFrame = 0;
         double deltaTime = 0.0;
+        int x = 0, y = 0;
 
         void load();
+        void update();
         void render();
         void input();
         void unload();  
