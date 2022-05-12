@@ -134,6 +134,7 @@ bool load(AssetStore* assetStore) {
     assetStore->addTexture(renderer, 49, "/data/spades_J.png");
     assetStore->addTexture(renderer, 50, "/data/spades_K.png");
     assetStore->addTexture(renderer, 51, "/data/spades_Q.png");
+    assetStore->addTexture(renderer, 52, "/data/card_back.png");
 
     return true;
 }
