@@ -51,10 +51,7 @@ short Table::loop() {
 }
 
 void Table::update() {
-
-    // clickable cards
-
-
+    setClickable();
 }
 
 void Table::render() {
@@ -67,6 +64,24 @@ void Table::render() {
     }
     
     SDL_RenderPresent(renderer);   
+}
+
+void Table::setClickable() {
+    for (short i = 21; i < 28; i++) {
+        if (!cards.at(i).destroyed) {
+            cards.at(i).clickable = true;
+        }
+    }
+
+    short z = 20;
+    for (short x = 5; x >= 0; x--) {
+        for (short y = 0; y < (x + 1) ; y++) {
+            bool v1 = cards.at(z + (x + 1)).destroyed; 
+            bool v2 = cards.at(z + (x + 2)).destroyed;
+            cards.at(z).clickable = !(v1 && v2);
+            z--;
+        }
+    }
 }
 
 void Table::input() {

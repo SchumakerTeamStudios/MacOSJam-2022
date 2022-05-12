@@ -24,7 +24,8 @@ class Table final {
         void update();
         void render();
         void input();
-        void unload();  
+        void unload(); 
+        void setClickable(); 
 
     public:
         Table(SDL_Renderer* renderer);
