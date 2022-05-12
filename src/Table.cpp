@@ -17,17 +17,17 @@ Table::~Table() {
 void Table::load() {
     Dealer dealer;
     deck = dealer.newShuffledDeck();
-    short x = 366;
+    short x = 365;
     short y = 65;
     
     short index = 0;
     for (short i = 0; i < 7; i++) {
         for (short j = 0; j <= i; j++) {
             short id = deck[index];
-            cards.push_back(Card(id, x - (j * 44), y + (i * 26), 64, 64));
+            cards.push_back(Card(id, i, x + (j * 44), y + (i * 26), 64, 64));
             index++;
         }
-        x += 20;
+        x -= 22;
     }
 }  
 
@@ -52,6 +52,9 @@ short Table::loop() {
 
 void Table::update() {
 
+    // clickable cards
+
+
 }
 
 void Table::render() {
@@ -75,7 +78,6 @@ void Table::input() {
                 exit(0);
             break;
             case SDL_MOUSEBUTTONDOWN:
-
                 SDL_GetMouseState(&x, &y);
             break;
         }
