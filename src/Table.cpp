@@ -78,7 +78,12 @@ void Table::setClickable() {
         for (short y = 0; y < (x + 1) ; y++) {
             bool v1 = cards.at(z + (x + 1)).destroyed; 
             bool v2 = cards.at(z + (x + 2)).destroyed;
-            cards.at(z).clickable = !(v1 && v2);
+            bool v3 = !(v1 && v2);
+            cards.at(z).clickable = v3;
+            if (v3) {
+                AssetStore* assetStore = AssetStore::getInstance();
+                cards.at(z).sprite = assetStore->getTexture(52);
+            }
             z--;
         }
     }
