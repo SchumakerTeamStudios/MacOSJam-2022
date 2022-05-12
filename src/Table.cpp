@@ -21,8 +21,8 @@ void Table::load() {
     short y = 65;
     
     short index = 0;
-    for (short i = 0; i < 7; i++) {
-        for (short j = 0; j <= i; j++) {
+    for (short i = 0; i < 7; i++) { // lines of the pyramid
+        for (short j = 0; j <= i; j++) { // cards on the line
             short id = deck[index];
             cards.push_back(Card(id, i, x + (j * 44), y + (i * 26), 64, 64));
             index++;
