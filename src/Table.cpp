@@ -43,10 +43,15 @@ short Table::loop() {
         millisecsPreviousFrame = SDL_GetTicks();
 
         input();
+        update();
         render();
         SDL_Delay(deltaTime);
     }
     return 1;
+}
+
+void Table::update() {
+
 }
 
 void Table::render() {
@@ -68,6 +73,10 @@ void Table::input() {
             case SDL_QUIT:
                 isRunning = false;
                 exit(0);
+            break;
+            case SDL_MOUSEBUTTONDOWN:
+
+                SDL_GetMouseState(&x, &y);
             break;
         }
     }
