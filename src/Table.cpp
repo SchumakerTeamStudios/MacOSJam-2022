@@ -57,12 +57,14 @@ void Table::update() {
     BoxCollider pointer = BoxCollider(x, y, 3, 3);
     if (click) {
         for (auto& card : cards) {
-            if(BoxCollider::collide(pointer, card.getCollider())) {
-                std::cout << " xxxxxxxxxx " << std::endl;
+            if (!card.destroyed && card.clickable) {
+                if(BoxCollider::collide(pointer, card.getCollider())) {
+                    std::cout << " xxxxxxxxxx " << std::endl;
+                    card.destroyed = true;
+                }
             }
         }
     }
-    
 }
 
 void Table::render() {
@@ -89,7 +91,7 @@ void Table::setClickable() {
         for (short y = 0; y < (x + 1) ; y++) {
             bool v1 = cards.at(z + (x + 1)).destroyed; 
             bool v2 = cards.at(z + (x + 2)).destroyed;
-            bool v3 = !(v1 && v2);
+            bool v3 = (v1 && v2);
             cards.at(z).clickable = v3;
             if (v3) {
                 cards.at(z).sprite = assetStore->getTexture(52);
