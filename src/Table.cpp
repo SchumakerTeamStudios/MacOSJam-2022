@@ -55,11 +55,14 @@ short Table::loop() {
 void Table::update() {
     setClickable();
     BoxCollider pointer = BoxCollider(x, y, 3, 3);
-    for (auto& card : cards) {
-        if(BoxCollider::collide(pointer, card.getCollider())) {
-            std::cout << " xxxxxxxxxx " << std::endl;
+    if (click) {
+        for (auto& card : cards) {
+            if(BoxCollider::collide(pointer, card.getCollider())) {
+                std::cout << " xxxxxxxxxx " << std::endl;
+            }
         }
     }
+    
 }
 
 void Table::render() {
@@ -106,7 +109,7 @@ void Table::input() {
                 exit(0);
             break;
             case SDL_MOUSEBUTTONDOWN:
-                
+                click = true;
             break;
         }
     }

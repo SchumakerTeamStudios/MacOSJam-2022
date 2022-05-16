@@ -20,6 +20,7 @@ class Table final {
         int millisecsPreviousFrame = 0;
         double deltaTime = 0.0;
         int x = 0, y = 0;
+        bool click = false;
 
         void load();
         void update();
