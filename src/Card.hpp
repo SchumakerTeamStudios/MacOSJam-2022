@@ -9,6 +9,9 @@
 #include "Sprite.hpp"
 class Card final : public Sprite {
     
+    private:
+        inline static AssetStore* assetStore = AssetStore::getInstance();
+
     public:
         short id;
         bool destroyed = false;

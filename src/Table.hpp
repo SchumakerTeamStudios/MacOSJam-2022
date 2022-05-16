@@ -11,6 +11,7 @@
 class Table final {
     
     private:
+        inline static AssetStore* assetStore = AssetStore::getInstance();
         SDL_Renderer* renderer;
         std::array<short, 52> deck;
         std::vector<Card> cards;

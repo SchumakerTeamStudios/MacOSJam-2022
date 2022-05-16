@@ -29,6 +29,8 @@ void Table::load() {
         }
         x -= 22;
     }
+    cards.at(27).sprite = assetStore->getTexture(50);
+    cards.at(27).y = 300;
 }  
 
 short Table::loop() {
@@ -52,6 +54,9 @@ short Table::loop() {
 
 void Table::update() {
     setClickable();
+    for (auto& card : cards) {
+        card.draw(renderer);
+    }
 }
 
 void Table::render() {
@@ -81,7 +86,6 @@ void Table::setClickable() {
             bool v3 = !(v1 && v2);
             cards.at(z).clickable = v3;
             if (v3) {
-                AssetStore* assetStore = AssetStore::getInstance();
                 cards.at(z).sprite = assetStore->getTexture(52);
             }
             z--;
