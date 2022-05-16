@@ -28,10 +28,10 @@ void Card::draw(SDL_Renderer* renderer) {
 
         BoxCollider box = getCollider();
         SDL_Rect collider; 
-        collider.x = box.x + 12;
-        collider.y = box.y + 1;
-        collider.w = box.w - 24;
-        collider.h = box.h - 6;
+        collider.x = box.x;
+        collider.y = box.y;
+        collider.w = box.w;
+        collider.h = box.h;
         SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
         SDL_RenderDrawRect(renderer, &collider);
     }

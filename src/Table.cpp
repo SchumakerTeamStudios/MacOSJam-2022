@@ -54,8 +54,11 @@ short Table::loop() {
 
 void Table::update() {
     setClickable();
+    BoxCollider pointer = BoxCollider(x, y, 3, 3);
     for (auto& card : cards) {
-        card.draw(renderer);
+        if(BoxCollider::collide(pointer, card.getCollider())) {
+            std::cout << " xxxxxxxxxx " << std::endl;
+        }
     }
 }
 
@@ -95,6 +98,7 @@ void Table::setClickable() {
 
 void Table::input() {
     SDL_Event sdlEvent;
+    SDL_GetMouseState(&x, &y);
     while (SDL_PollEvent(&sdlEvent)) {
         switch (sdlEvent.type) {
             case SDL_QUIT:
@@ -102,7 +106,7 @@ void Table::input() {
                 exit(0);
             break;
             case SDL_MOUSEBUTTONDOWN:
-                SDL_GetMouseState(&x, &y);
+                
             break;
         }
     }
