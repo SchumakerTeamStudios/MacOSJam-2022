@@ -61,6 +61,7 @@ void Table::update() {
                 if(BoxCollider::collide(pointer, card.getCollider())) {
                     std::cout << " xxxxxxxxxx " << std::endl;
                     card.destroyed = true;
+                    click = false;
                 }
             }
         }
