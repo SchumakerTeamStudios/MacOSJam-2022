@@ -37,3 +37,17 @@ void Card::draw(SDL_Renderer* renderer) {
         SDL_RenderDrawRect(renderer, &collider);
     }
 }
+
+void Card::hoverOn() {
+    if (isHover == false) {
+        y -= hover;
+        isHover = true;
+    }
+}
+
+void Card::hoverOff() {
+    if (isHover) {
+        y += hover;
+        isHover = false;
+    }
+}

@@ -11,6 +11,8 @@ class Card final : public Sprite {
     
     private:
         inline static AssetStore* assetStore = AssetStore::getInstance();
+        short hover = 5;
+        bool isHover = false;
 
     public:
         short id;
@@ -18,11 +20,13 @@ class Card final : public Sprite {
         bool destroyed = false;
         bool clickable = false;
         short line = -1;
-
+        
         Card();
         Card(short id);
         Card(short id, short line, short x, short y, short w, short h);
         ~Card();
 
         void draw(SDL_Renderer* renderer) override;
+        void hoverOn();
+        void hoverOff();
 };
