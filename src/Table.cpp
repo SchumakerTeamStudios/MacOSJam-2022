@@ -60,12 +60,10 @@ void Table::update() {
         for (auto& card : cards) {
             if (!card.destroyed && card.clickable) {
                 if(BoxCollider::collide(pointer, card.getCollider())) {
-                    if (card. == 13) {}
-
-
-                    std::cout << " xxxxxxxxxx " << std::endl;
-                    card.destroyed = true;
-                    
+                    if (card.value == 13) {
+                        std::cout << " xxxxxxxxxx " << std::endl;
+                        card.destroyed = true;
+                    }
                 }
             }
         }
