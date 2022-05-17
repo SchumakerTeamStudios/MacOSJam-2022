@@ -21,6 +21,8 @@ class Table final {
         double deltaTime = 0.0;
         int x = 0, y = 0;
         bool click = false;
+        bool f_click = false;
+        bool s_click = false;
 
         void load();
         void update();
