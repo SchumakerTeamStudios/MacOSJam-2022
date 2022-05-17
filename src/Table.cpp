@@ -30,6 +30,8 @@ void Table::load() {
         x -= 22;
     }
     cards.at(27).sprite = assetStore->getTexture(50);
+    cards.at(27).value = 13;
+
     cards.at(27).y = 300;
 }  
 
@@ -63,6 +65,8 @@ void Table::update() {
                     if (card.value == 13) {
                         std::cout << " xxxxxxxxxx " << std::endl;
                         card.destroyed = true;
+                    } else {
+                        
                     }
                 }
             }
