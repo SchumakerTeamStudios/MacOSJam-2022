@@ -16,7 +16,7 @@ Menu::~Menu() {
 }
 
 void Menu::load() {
-    font60 = TTF_OpenFont("data/ExoSpace.ttf", 60);
+    font60 = TTF_OpenFont("data/ExoSpace.ttf", 68);
     font24 = TTF_OpenFont("data/ExoSpace.ttf", 24);
 
     SDL_Surface* bkgSurface = IMG_Load("data/world.jpg");
