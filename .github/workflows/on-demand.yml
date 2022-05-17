@@ -1,4 +1,4 @@
-name: build macos on demand
+name: build macOS on demand
 
 on:
   workflow_dispatch:
