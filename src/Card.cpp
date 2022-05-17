@@ -27,14 +27,16 @@ void Card::draw(SDL_Renderer* renderer) {
         rect.w = w; rect.h = h;
         SDL_RenderCopy(renderer, sprite, NULL, &rect);
 
-        BoxCollider box = getCollider();
-        SDL_Rect collider; 
-        collider.x = box.x;
-        collider.y = box.y;
-        collider.w = box.w;
-        collider.h = box.h;
-        SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
-        SDL_RenderDrawRect(renderer, &collider);
+        if (selected) {
+            BoxCollider box = getCollider();
+            SDL_Rect collider; 
+            collider.x = box.x;
+            collider.y = box.y;
+            collider.w = box.w;
+            collider.h = box.h;
+            SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+            SDL_RenderDrawRect(renderer, &collider);
+        }
     }
 }
 
