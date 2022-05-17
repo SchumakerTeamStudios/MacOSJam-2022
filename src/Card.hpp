@@ -14,13 +14,14 @@ class Card final : public Sprite {
 
     public:
         short id;
+        short value;
         bool destroyed = false;
         bool clickable = false;
         short line = -1;
 
         Card();
         Card(short id);
-        Card(short id, short line,short x, short y, short w, short h);
+        Card(short id, short value, short line, short x, short y, short w, short h);
         ~Card();
 
         void draw(SDL_Renderer* renderer) override;
