@@ -56,7 +56,7 @@ short Table::loop() {
 
 void Table::update() {
     setClickable();
-    BoxCollider pointer = BoxCollider(x, y, 3, 3);
+    BoxCollider pointer = BoxCollider(x, y, 2, 2);
     if (click) {
         click = false;
         for (auto& card : cards) {
@@ -68,11 +68,14 @@ void Table::update() {
                     } else {
                         if (pair < 3) {
                             if (card1 == nullptr) {
-                                card1 = &card;      
+                                card.selected = true;
+                                card1 = &card; 
+                                     
                                 std::cout << " first card selected " << std::endl;
                                 break;
                             } else {
                                 if (card2 == nullptr) {
+                                    card.selected = true;
                                     card2 = &card;  
                                     std::cout << " second card selected " << std::endl;
                                     break;  
@@ -98,6 +101,8 @@ void Table::update() {
                 card2->destroyed = true;
                 std::cout << " cards destroyed " << std::endl;
             }
+            card1->selected = false;
+            card2->selected = false;
             card1 = nullptr;
             card2 = nullptr;
             std::cout << " pointers cleared " << std::endl;
