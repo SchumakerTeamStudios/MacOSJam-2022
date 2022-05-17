@@ -21,8 +21,9 @@ class Table final {
         double deltaTime = 0.0;
         int x = 0, y = 0;
         bool click = false;
-        bool f_click = false;
-        bool s_click = false;
+        char pair = 0;
+        Card* card1 = nullptr;
+        Card* card2 = nullptr;
 
         void load();
         void update();
