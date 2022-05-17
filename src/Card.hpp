@@ -19,6 +19,7 @@ class Card final : public Sprite {
         short value;
         bool destroyed = false;
         bool clickable = false;
+        bool selected = false;
         short line = -1;
         
         Card();
