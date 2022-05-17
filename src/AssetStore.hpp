@@ -18,5 +18,6 @@ class AssetStore final {
         static AssetStore* getInstance();
         void addTexture(SDL_Renderer* renderer, const short assetId, const short value, const std::string& filePath);
         SDL_Texture* getTexture(const short assetId);
+        short getCardValue(const short assetId);
         void clearAssets();
 };
