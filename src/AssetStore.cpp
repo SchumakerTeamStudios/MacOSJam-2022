@@ -31,6 +31,10 @@ SDL_Texture* AssetStore::getTexture(const short assetId) {
     return textures[assetId].second;
 }
 
+short AssetStore::getCardValue(const short assetId) {
+    return textures[assetId].first;
+}
+
 void AssetStore::clearAssets() {
     for (auto texture: textures) {
         SDL_DestroyTexture(texture.second.second);
