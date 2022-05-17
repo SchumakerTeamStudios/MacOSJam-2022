@@ -12,9 +12,10 @@ Card::Card(short id) : Sprite() {
     AssetStore* assetStore = AssetStore::getInstance();
     sprite = assetStore->getTexture(id);
 }
-Card::Card(short id, short line, short x, short y, short w, short h) : Sprite(x, y, w, h) {
+Card::Card(short id, short value, short line, short x, short y, short w, short h) : Sprite(x, y, w, h) {
     this->id = id;
     this->line = line;
+    this->value = value;
     sprite = assetStore->getTexture(id);
 }
 Card::~Card() {}
