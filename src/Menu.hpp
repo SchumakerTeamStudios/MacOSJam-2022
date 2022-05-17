@@ -22,7 +22,7 @@ class Menu final {
         int millisecsPreviousFrame = 0;
         double deltaTime = 0.0;
 
-        short speed = 8;
+        char speed = 8;
         const short offset = 30;
         
         void load();  
