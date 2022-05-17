@@ -21,7 +21,7 @@ class Card final : public Sprite {
 
         Card();
         Card(short id);
-        Card(short id, short value, short line, short x, short y, short w, short h);
+        Card(short id, short line, short x, short y, short w, short h);
         ~Card();
 
         void draw(SDL_Renderer* renderer) override;
