@@ -61,13 +61,54 @@ void Table::update() {
         click = false;
         for (auto& card : cards) {
             if (!card.destroyed && card.clickable) {
-                if(BoxCollider::collide(pointer, card.getCollider())) {
+                if (BoxCollider::collide(pointer, card.getCollider())) {
                     if (card.value == 13) {
-                        std::cout << " xxxxxxxxxx " << std::endl;
+                        std::cout << " king " << std::endl;
                         card.destroyed = true;
                     } else {
-                        
+                        if (pair < 3) {
+                            if (card1 == nullptr) {
+                                card1 = &card;      
+                                std::cout << " first card selected " << std::endl;
+                                break;
+                            } else {
+                                if (card2 == nullptr) {
+                                    card2 = &card;  
+                                    std::cout << " second card selected " << std::endl;
+                                    break;  
+                                }
+                            }
+
+                            pair++;
+                            if (pair > 1) {
+                                std::cout << " break loop " << std::endl;
+                                break;
+                            }
+                        }
                     }
+                }
+            }
+        }
+        if (card1 != nullptr && card2 != nullptr) {
+            pair = 0;
+            std::cout << " pair = 0 " << std::endl;
+            auto res = card1->value + card2->value;
+            if (res == 13) {
+                card1->destroyed = true;
+                card2->destroyed = true;
+                std::cout << " cards destroyed " << std::endl;
+            }
+            card1 = nullptr;
+            card2 = nullptr;
+            std::cout << " pointers cleared " << std::endl;
+        }
+    } else {
+        for (auto& card : cards) {
+            if (!card.destroyed && card.clickable) {
+                if (BoxCollider::collide(pointer, card.getCollider())) {
+                    card.hoverOn();
+                } else {
+                     card.hoverOff();
                 }
             }
         }
@@ -87,22 +128,22 @@ void Table::render() {
 }
 
 void Table::setClickable() {
-    for (short i = 21; i < 28; i++) {
+    for (char i = 21; i < 28; i++) {
         if (!cards.at(i).destroyed) {
             cards.at(i).clickable = true;
         }
     }
 
     short z = 20;
-    for (short x = 5; x >= 0; x--) {
+    for (char x = 5; x >= 0; x--) {
         for (short y = 0; y < (x + 1) ; y++) {
             bool v1 = cards.at(z + (x + 1)).destroyed; 
             bool v2 = cards.at(z + (x + 2)).destroyed;
             bool v3 = (v1 && v2);
             cards.at(z).clickable = v3;
-            if (v3) {
-                cards.at(z).sprite = assetStore->getTexture(52);
-            }
+            //if (v3) {
+            //   cards.at(z).sprite = assetStore->getTexture(52);
+            //}
             z--;
         }
     }
