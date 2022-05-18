@@ -38,7 +38,7 @@ void Card::draw(SDL_Renderer* renderer) {
             SDL_RenderDrawRect(renderer, &collider);
         }
     }
-}
+} 
 
 void Card::hoverOn() {
     if (isHover == false) {
