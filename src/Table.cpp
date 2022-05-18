@@ -168,6 +168,10 @@ void Table::setClickable() {
             z--;
         }
     }
+
+    for (char i = 51; i >= 28; i--) {
+        
+    }
 }
 
 void Table::input() {
