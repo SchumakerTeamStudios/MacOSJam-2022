@@ -32,7 +32,15 @@ void Table::load() {
     cards.at(27).sprite = assetStore->getTexture(50);
     cards.at(27).value = 13;
 
-    cards.at(27).y = 300;
+    std::cout << cards.at(26).x << std::endl;
+    std::cout << cards.at(23).x << std::endl;
+
+    for (short i = 28; i < 52; i++) { 
+        short id = deck[i];
+        cards.push_back(Card(id, i, 453, 350, 64, 64));
+        cards.at(i).clickable = false;
+    }
+    cards.at(51).clickable = true;
 }  
 
 short Table::loop() {
@@ -124,11 +132,19 @@ void Table::render() {
     SDL_SetRenderDrawColor(renderer, 0, 64, 0, 255);
     SDL_RenderClear(renderer);
     //SDL_RenderCopy(renderer, background, NULL, &rectBackground);
+
+    SDL_Rect spot1; 
+    spot1.x = 321;
+    spot1.y = 350;
+    spot1.w = 40;
+    spot1.h = 58;
+    SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+    SDL_RenderDrawRect(renderer, &spot1);
     
     for (auto& card : cards) {
         card.draw(renderer);
     }
-    
+
     SDL_RenderPresent(renderer);   
 }
 
