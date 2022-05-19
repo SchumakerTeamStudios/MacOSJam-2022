@@ -170,7 +170,12 @@ void Table::setClickable() {
     }
 
     for (char i = 51; i >= 28; i--) {
-        
+        if (!cards.at(i).destroyed) {
+            cards.at(i).clickable = true;
+            break;
+        } else {
+            continue;
+        }
     }
 }
 
