@@ -20,6 +20,7 @@ class Card final : public Sprite {
         bool destroyed = false;
         bool clickable = false;
         bool selected = false;
+        bool drawable = true; 
         short line = -1;
         
         Card();
